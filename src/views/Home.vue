@@ -1,4 +1,11 @@
 <template>
+    <div>
+    <div class="row">
+        <div class="col s6">
+            <!-- Form -->
+            <Postform/>
+        </div>
+    </div>
     <div class="row">
         <div class="col s6" v-for="(post,index) in posts"
             v-bind:item="post"
@@ -18,14 +25,18 @@
             </div>
         </div>
     </div>
+    </div>
 </template>
 
 <script>
 import PostService from '../PostService'
+import Postform from '../components/Postform'
 const postService = new PostService()
-
 export default {
     name: 'Home',
+    components: {
+        Postform
+    },
     data(){
         return{
             posts: []
